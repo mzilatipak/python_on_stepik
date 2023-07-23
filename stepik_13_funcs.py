@@ -32,9 +32,9 @@ def draw_box():
     print('*' * 10)             # 4
 
 draw_box() """
+
 # 13.1.2
 """ Напишите функцию draw_triangle(), которая выводит звездный прямоугольный треугольник с катетами, равными 10 в соответствии с образцом:
-
 *
 **
 ***
@@ -50,23 +50,45 @@ def draw_triangle():
         print('*' * i)
 
 draw_triangle() """
+
 # 13.2.1
-# Напишите функцию draw_triangle(fill, base), которая принимает два параметра:
+""" # Напишите функцию draw_triangle(fill, base), которая принимает два параметра:
 # fill – символ заполнитель;
 # base – величина основания равнобедренного треугольника;
 # а затем выводит его.
 # Примечание. Гарантируется, что основание треугольника – нечетное число.
 # объявление функции
 def draw_triangle(fill, base):
-    pass
-
+    for i in range(0, base // 2 + 1):
+        for j in range(0, i+1):
+            print(fill, end='')
+        print()
+    for k in range(base // 2-1, -1, -1):
+        for l in range(0, k+1):
+            print(fill, end = '')
+        print()
 # считываем данные
 fill = input()
 base = int(input())
 
 # вызываем функцию
-draw_triangle(fill, base)
+draw_triangle(fill, base) """
 
 # 13.2.2
+# Напишите функцию print_fio(name, surname, patronymic), которая принимает три параметра: 
+# name – имя человека; 
+# surname – фамилия человека; 
+# patronymic – отчество человека; 
+# а затем выводит на печать ФИО человека.
+# Примечание. Предусмотрите тот факт, что все три буквы в ФИО должны иметь верхний регистр.
+# объявление функции
+def print_fio(name, surname, patronymic):
+    pass
+
+# считываем данные
+name, surname, patronymic = input(), input(), input()
+
+# вызываем функцию
+print_fio(name, surname, patronymic)
 
 # 13.2.3

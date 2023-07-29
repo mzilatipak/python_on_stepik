@@ -75,7 +75,7 @@ base = int(input())
 draw_triangle(fill, base) """
 
 # 13.2.2
-# Напишите функцию print_fio(name, surname, patronymic), которая принимает три параметра: 
+""" # Напишите функцию print_fio(name, surname, patronymic), которая принимает три параметра: 
 # name – имя человека; 
 # surname – фамилия человека; 
 # patronymic – отчество человека; 
@@ -83,12 +83,32 @@ draw_triangle(fill, base) """
 # Примечание. Предусмотрите тот факт, что все три буквы в ФИО должны иметь верхний регистр.
 # объявление функции
 def print_fio(name, surname, patronymic):
-    pass
+    print(surname[0], name[0], patronymic[0], sep='')
 
 # считываем данные
-name, surname, patronymic = input(), input(), input()
+name, surname, patronymic = input().upper(), input().upper(), input().upper()
 
 # вызываем функцию
-print_fio(name, surname, patronymic)
+print_fio(name, surname, patronymic) """
 
 # 13.2.3
+""" # Напишите функцию print_digit_sum(), которая принимает одно целое число num и выводит на печать сумму его цифр.
+# объявление функции
+def print_digit_sum(num):
+    summ = 0  # локальная переменная
+    while num != 0:
+        last = num % 10  # последня цифра в n(um)
+        # summ += last  # сумма
+        summ += num % 10
+        num //= 10  # обрезаем последнюю цифру у n(um)
+    print(summ)
+
+# считываем данные
+n = int(input())  # глобальная переменная
+
+# вызываем функцию
+print_digit_sum(n) """
+# Все операции в теле функции мы выполняем с её параметром. В данном случае def print_digit_sum(num):  
+# именно с num. А когда идет вызов функции, именно в этот момент заместо num подставляется n. 
+
+# 13.

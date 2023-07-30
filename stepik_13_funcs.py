@@ -249,11 +249,147 @@ n = int(input())
 print(*quick_merge(list)) """
 
 # 13.5.1
+""" # Напишите функцию is_valid_triangle(side1, side2, side3), 
+# которая принимает в качестве аргументов три натуральных числа, 
+# и возвращает значение True если существует невырожденный 
+# треугольник со сторонами side1, side2, side3 и False в противном случае.
+def is_valid_triangle(side1, side2, side3):
+    # return a + b > c and a + c > b and b + c > a - так лучше
+    if a + b > c and a + c > b and b + c > a:
+        return True
+    else:
+        return False
+
+a, b, c = int(input()), int(input()), int(input())  # считывает данные
+
+print(is_valid_triangle(a, b, c)) 
+
+# ещё вариант:
+# объявление функции
+def is_valid_triangle():
+    # считываем данные
+    a, b, c = int(input()), int(input()), int(input())
+    return a + b > c and a + c > b and b + c > a
+
+# вызываем функцию
+print(is_valid_triangle())"""
+
+# 13.5.2
+""" # Напишите функцию is_prime(num), 
+# которая принимает в качестве аргумента натуральное число и возвращает значение True, 
+# если число является простым и False в противном случае.
+# объявление функции
+def is_prime(num):
+    lst = []  # можно через счётчик, если каунт == 2 и тэдэ
+    for i in range(1, num + 1):
+        if num % i == 0:
+            lst.append(i)
+    if len(lst) == 2:
+        return True
+    else:
+        return False
+
+# считываем данные
+n = int(input())
+
+# вызываем функцию
+print(is_prime(n)) """
+
+# 13.5.3
+""" # Напишите функцию get_next_prime(num), 
+# которая принимает в качестве аргумента натуральное число num и 
+# возвращает первое простое число большее числа num.
+# Примечание 1. Используйте функцию is_prime() из предыдущей задачи.
+
+# объявление функции
+def is_prime(num):
+    count = 0
+    for i in range(1, num + 1):
+        if num % i == 0:
+            count += 1
+    if count == 2:
+        return True
+    else:
+        return False
+
+def get_next_prime(num):
+    num = num + 1
+    while is_prime(num) != True:
+        num += 1
+        if is_prime(num) == True:
+            break
+    return num
+
+# считываем данные
+n = int(input())
+
+# вызываем функцию
+# print(is_prime(n))
+print(get_next_prime(n)) """
+# нахождение простоого числа следующего за введённым, одной функцией
+""" # объявление функции
+def get_next_prime(num):
+    num += 1
+    for i in range(2, num):
+        if num % i == 0:
+            return get_next_prime(num)
+    return num
+
+# считываем данные
+n = int(input())
+
+# вызываем функцию
+print(get_next_prime(n)) """
+
+# 15.5.4 
+""" #Напишите функцию is_password_good(password), 
+# которая принимает в качестве аргумента строковое значение пароля password 
+# и возвращает значение True, если пароль является надежным и False - в противном случае.
+# Пароль является надежным если:
+# 1. его длина не менее 8 символов; 
+# 2. он содержит как минимум одну заглавную букву (верхний регистр); 
+# 3. он содержит как минимум одну строчную букву (нижний регистр);
+# 4. он содержит хотя бы одну цифру.
+
+def is_password_good(password):
+    if len(password) < 8:
+        return False
+    count1, count2, count3 = 0, 0, 0
+    for i in range(len(password)):
+        if password[i].isdigit():
+            count1 += 1
+        elif password[i].islower():
+            count2 += 1
+        elif password[i].isupper():
+            count3 += 1
+    if count1 >= 1 and count2 >= 1 and count3 >= 1:
+        return True
+    else:
+        return False
+
+txt = input()
+
+print(is_password_good(txt)) """
+
+# 15.5.5
+# Напишите функцию is_one_away(word1, word2), 
+# которая принимает в качестве аргументов два слова word1 и word2 
+# и возвращает значение True, если слова имеют одинаковую длину и отличаются ровно в 1 символе 
+# и False - в противном случае.
+
+def is_one_away(word1, word2):
+    if len(word1) != len(word2):
+        return False
+    cnt1 = 0
+    for i in range(len(word1)):
+        if word1[i] == word2[i]:
+            cnt1 += 1
 
 
+txt1 = input()
+txt2 = input()
 
-
-
+print(is_one_away(txt1, txt2))
 
 
 

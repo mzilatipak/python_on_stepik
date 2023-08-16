@@ -184,33 +184,38 @@
 #     if req.lower() in tmp[i].lower():
 #         lst.append(tmp[i])
 # print(*lst, sep='\n')
-                                            # 11.4.6** НЕ РЕШЕНО!!!
-# На вход программе подается натуральное число n, затем n строк,
+
+# 11.4.6**
+""" # На вход программе подается натуральное число n, затем n строк,
 # затем число k — количество поисковых запросов,
 # затем k строк — поисковые запросы.
 # Напишите программу, которая выводит все введенные строки,
 # в которых встречаются все поисковые запросы.
-# n = int(input())
-# lst = []
-# req_lst = []
-# tmp = []
+n = int(input())
+str_lst = []
+req_lst = []
+res_lst = []
 # count = 0
-# # vvodim stroki
-# for _ in range(n):
-#     str = input()
-#     tmp.append(str)
-# # vvodim zaprosy
-# k = int(input())
-# for _2 in range(k):
-#     req = input()
-#     req_lst.append(req)
-# # сравниваем содержимое списков
-# for i in range(len(req_lst)):
-#     if req_lst[i].lower() in tmp[i].lower():
-#         count += 1
-#     if count == len(req_lst):
-#         lst.append(tmp[i])
-# print(*lst, sep='\n')
+
+for _ in range(n):
+    str = input()  # вводим строки
+    str_lst.append(str)  # список строк
+
+k = int(input())
+for _2 in range(k):
+    req = input()  # вводим запросы
+    req_lst.append(req) # список запросов
+
+# ищем запросы в строках
+for i in str_lst:
+    count = 0  # счётчик совпадений
+    for j in req_lst:  # сравниваем наличией элемента из списка поиска с основным
+        if j.lower() in i.lower():  # если совпадение найдено:
+            count += 1
+    if count == len(req_lst):  # если счётчик совпадений равен или больше количеству элементов поискового списка, 
+        # печатаем элемент из основного списка.
+        print(i) """
+
 # 11.4.7
 # На вход программе подается натуральное число n, а затем n целых чисел.
 # Напишите программу, которая сначала выводит все отрицательные числа,

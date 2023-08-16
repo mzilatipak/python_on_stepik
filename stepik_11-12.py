@@ -194,8 +194,6 @@
 n = int(input())
 str_lst = []
 req_lst = []
-res_lst = []
-# count = 0
 
 for _ in range(n):
     str = input()  # вводим строки
